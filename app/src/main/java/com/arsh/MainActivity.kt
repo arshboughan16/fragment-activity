@@ -25,20 +25,20 @@ class MainActivity : AppCompatActivity() {
         fragmentContainerView =findViewById(R.id.fragmentContainerView)
 
         btnalert_Dialog.setOnClickListener{
-            c++
-            activityInterface.ActivityInterface()
             var alertDialog= AlertDialog.Builder(this)
             alertDialog.setTitle("Title")
             alertDialog.setMessage("Alert dialog message")
             alertDialog.setPositiveButton("Red"){_,_->
-                fragmentContainerView.setBackgroundResource(R.color.red)
+
+                c++
+                activityInterface.ActivityInterface(0)
             }
             alertDialog.setNegativeButton("Green"){_,_->
-                fragmentContainerView.setBackgroundColor(green)
-            }
+                c++
+                activityInterface.ActivityInterface(1)            }
             alertDialog.setNeutralButton("Blue"){_,_->
-                fragmentContainerView.setBackgroundColor(R.color.blue)
-            }
+                c++
+                activityInterface.ActivityInterface(2)            }
             alertDialog.show()
         }
     }

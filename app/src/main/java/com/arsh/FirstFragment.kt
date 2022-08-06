@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
@@ -29,6 +30,7 @@ class FirstFragment : Fragment(), ActivityInterface {
     private var param2: String? = null
     lateinit var initView: View
     lateinit var tvName: TextView
+    lateinit var ll: LinearLayout
     lateinit var fragmentActivity: MainActivity
 
     override fun onAttach(context: Context) {
@@ -52,6 +54,7 @@ class FirstFragment : Fragment(), ActivityInterface {
         // Inflate the layout for this fragment
         initView =inflater.inflate(R.layout.fragment_first,container,false)
         tvName=initView.findViewById(R.id.tvName)
+        ll=initView.findViewById(R.id.ll)
         /* tvName.setOnClickListener{
              System.out.println("TextView")
              Snackbar.make(initView,resources.getString(R.string.hlo),
@@ -90,11 +93,15 @@ class FirstFragment : Fragment(), ActivityInterface {
             }
     }
 
-    fun activityInterface() {
-        tvName.setText("Changed color From activity${fragmentActivity.c} times")
-    }
 
-    override fun ActivityInterface() {
-        TODO("Not yet implemented")
+    override fun ActivityInterface(color:Int) {
+        tvName.setText("Changed color From activity${fragmentActivity.c} times")
+        when(color){
+            0 -> ll.setBackgroundResource(R.color.red)
+            1 -> ll.setBackgroundResource(R.color.green)
+            2 -> ll.setBackgroundResource(R.color.blue)
+
+        }
+
     }
 }
